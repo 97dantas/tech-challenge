@@ -40,7 +40,7 @@ Este documento descreve como consumir os endpoints da API. Utiliza JSON para os 
 ## 1. Cadastro de Usuário
 
 ### Endpoint
-`POST /users`
+`POST /user`
 
 ### Descrição
 Registra um novo usuário.
@@ -56,7 +56,6 @@ Registra um novo usuário.
 
 ### Resposta
 - **201 Created**: Retorna o objeto do usuário criado.
-- **400 Bad Request**: Caso algum campo obrigatório esteja ausente.
 
 ---
 
@@ -85,6 +84,17 @@ Autentica um usuário e retorna um token JWT.
 
 ## 3. Endpoints da Lista de Desejos (Autenticado)
 
+
+### Criar Lista de Desejos
+**Endpoint**: `POST /wish-list`  
+**Descrição**: Obtém a lista de desejos do usuário autenticado.  
+**Cabeçalhos**:
+```json
+{
+  "Authorization": "Bearer <token>"
+}
+```
+
 ### Listar Produtos na Lista de Desejos
 **Endpoint**: `GET /wish-list`  
 **Descrição**: Obtém a lista de desejos do usuário autenticado.  
@@ -95,18 +105,9 @@ Autentica um usuário e retorna um token JWT.
 }
 ```
 
-### Criar Lista de Desejos
-**Endpoint**: `POST /wish-list`  
-**Descrição**: Obtém a lista de desejos do usuário autenticado.  
-**Cabeçalhos**:  
-```json
-{
-  "Authorization": "Bearer <token>"
-}
-```
 
 ### Adicionar Produto à Lista de Desejos
-**Endpoint**: `POST /wish-list/products/:productId`  
+**Endpoint**: `POST /wish-list/product/:productId`  
 **Descrição**: Adiciona um produto à lista de desejos do usuário.  
 **Cabeçalhos**:  
 ```json
@@ -116,7 +117,7 @@ Autentica um usuário e retorna um token JWT.
 ```
 
 ### Adicionar Produto à Lista de Desejos
-**Endpoint**: `POST /wish-list/products/:productId`  
+**Endpoint**: `POST /wish-list/product/:productId`  
 **Descrição**: Adiciona um produto à lista de desejos do usuário.  
 **Cabeçalhos**:  
 ```json
@@ -126,7 +127,7 @@ Autentica um usuário e retorna um token JWT.
 ```
 
 ### Remover Produto da Lista de Desejos
-**Endpoint**: `DELETE /wish-list/products/:productId`  
+**Endpoint**: `DELETE /wish-list/product/:productId`  
 **Descrição**: Remove um produto da lista de desejos do usuário.  
 **Cabeçalhos**:  
 ```json

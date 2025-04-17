@@ -26,7 +26,7 @@ export const WishListRouter = (wishListUseCase: WishListUseCase): Router => {
         }
     });
 
-    router.post("/products/:productId", async (req: Request, res: Response, next: NextFunction) => {
+    router.post("/product/:productId", async (req: Request, res: Response, next: NextFunction) => {
         try {
             const { productId } = req.params;
             const { userId } = req.headers
@@ -37,7 +37,7 @@ export const WishListRouter = (wishListUseCase: WishListUseCase): Router => {
         }
     });
 
-    router.delete("/products/:productId", async (req: Request, res: Response, next: NextFunction) => {
+    router.delete("/product/:productId", async (req: Request, res: Response, next: NextFunction) => {
         try {
             const { productId } = req.params;
             const { userId } = req.headers
