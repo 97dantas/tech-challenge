@@ -11,32 +11,30 @@ export default function UserRouter(
 ) {
     const router = express.Router()
 
-    router.get('/', authMiddleware.authenticate, async (req: Request, res: Response) => {
+    router.get('/', authMiddleware.authenticate, async (req: Request, res: Response, next: NextFunction) => {
         try {
             const contacts = await userUseCaseImpl.getAllUsers()
             res.send(contacts)
         } catch (err) {
-            res.status(500).send({ message: "Error fetching data" })
+            next(err)
         }
     })
 
-    router.get('/email/:email', authMiddleware.authenticate, async (req: Request, res: Response) => {
+    router.get('/email/:email', authMiddleware.authenticate, async (req: Request, res: Response, next: NextFunction) => {
         try {
             const response = await userUseCaseImpl.getUserByEmail(req.params.email)
             res.status(status.OK).json(response)
         } catch (err) {
-            console.log(err.message)
-            res.status(500).send({ message: "Error saving data" })
+            next(err)
         }
     })
 
-    router.get('/id/:id', authMiddleware.authenticate, async (req: Request, res: Response) => {
+    router.get('/id/:id', authMiddleware.authenticate, async (req: Request, res: Response, next: NextFunction) => {
         try {
             const response = await userUseCaseImpl.getUserById(Number(req.params.id))
             res.status(status.OK).json(response)
         } catch (err) {
-            console.log(err.message)
-            res.status(500).send({ message: "Error saving data" })
+            next(err)
         }
     })
 
@@ -49,24 +47,22 @@ export default function UserRouter(
         }
     })
 
-    router.put('/id/:id', authMiddleware.authenticate, async (req: Request, res: Response) => {
+    router.put('/id/:id', authMiddleware.authenticate, async (req: Request, res: Response, next: NextFunction) => {
         try {
             const response = await userUseCaseImpl.updateUserById(Number(req.params.id), req.body)
             res.status(status.OK).json(response)
         } catch (err) {
-            console.log(err.message)
-            res.status(500).send({ message: "Error saving data" })
+            next(err)
         }
     })
 
-    router.delete('/id/:id', authMiddleware.authenticate, async (req: Request, res: Response) => {
+    router.delete('/id/:id', authMiddleware.authenticate, async (req: Request, res: Response, next: NextFunction) => {
         try {
             const response = await userUseCaseImpl.deleteUserById(Number(req.params.id))
             
             res.status(status.OK).json(response)
         } catch (err) {
-            console.log(err.message)
-            res.status(500).send({ message: "Error saving data" })
+            next(err)
         }
     })
 
