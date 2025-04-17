@@ -11,8 +11,7 @@ Siga os passos abaixo para rodar o projeto utilizando o `docker-compose`:
 
 1. **Clone o repositório** (se ainda não o fez):
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd 
+   git clone https://github.com/97dantas/tech-challenge
    ```
 
 2. **Suba os containers com o Docker Compose**:
