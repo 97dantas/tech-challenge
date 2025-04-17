@@ -1,7 +1,5 @@
 import { ProductModel } from "../../domain/product-model";
 import { ProductGateway } from "../../use-cases/interfaces/gateway/product-gateway";
-import {ProductNotFound} from "../../domain/erros/product-not-found";
-
 
 export class ProductGatewayImpl implements ProductGateway {
     private readonly producst: ProductModel[] = [
