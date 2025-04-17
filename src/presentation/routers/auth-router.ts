@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { AuthUseCase } from '../../use-cases/AuthUseCase';
+import { AuthUseCase } from '../../use-cases/auth-use-case';
 
 export default function AuthRouter(authUseCase: AuthUseCase): Router {
     const router = Router();

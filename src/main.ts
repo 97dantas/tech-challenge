@@ -17,7 +17,7 @@ import { RedisCache } from "./infra/database/redis/redis";
 import { Cript } from "./infra/cript/cript";
 import { IUserCrypt } from "./use-cases/interfaces/IUserCrypt";
 import { JWTService } from './infra/cript/jwt';
-import { AuthUseCase } from './use-cases/AuthUseCase';
+import { AuthUseCase } from './use-cases/auth-use-case';
 import AuthRouter from './presentation/routers/auth-router';
 import { AuthMiddleware } from "./presentation/middleware/auth-middleware";
 import PGDataSource from "./infra/database/postgres/data-source";

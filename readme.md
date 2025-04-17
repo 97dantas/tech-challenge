@@ -1,3 +1,10 @@
+# Arquitetura
+<img src="wish.arch.png" alt="Uma imagem legal">
+
+* As requisições para buscar os produtos estão mocados na class `src/infra/gateway/product-gateway.ts` (deve ser consultado para pegar o ID do produto)
+* O Postgres é utilizado para persistir os dados do usuário e da wish list.
+* Quando é adicionado ou removido um produto, toda a wish list é adicionada no cache (Redis)
+
 # Como Rodar o Projeto com Docker Compose
 
 Siga os passos abaixo para rodar o projeto utilizando o `docker-compose`:
